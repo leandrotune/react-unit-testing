@@ -12,5 +12,17 @@ describe('App Component', () => {
     expect(getByText('isabella')).toBeInTheDocument()
   })
   
- 
+  it('should be able to add new item to the list', () => {
+    const { getByText, debug } = render(<App />)
+
+    const addButton = getByText('adicionar')
+
+    debug()
+
+    fireEvent.click(addButton)
+
+    debug()
+
+    expect(getByText('Novo')).toBeInTheDocument()
+  })
 })
